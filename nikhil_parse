@@ -1,0 +1,9 @@
+gene = raw_input("geneid:")
+
+from Bio import Entrez
+Entrez.email = "nickyesupriya@hotmail.com"
+handle = Entrez.efetch(db="gene", id=gene, rettype="null", retmode="xml")
+output = (handle.read())
+
+fie_name = open("dilename.txt", 'w')
+fie_name.write (output)
