@@ -1,0 +1,22 @@
+fastalist = []
+
+def protein_to_fasta(proteinidList):
+
+	for proteinid in proteinidList:
+
+		protein = str(proteinid)
+
+		
+		from Bio import Entrez
+		Entrez.email = "nickyesupriya@hotmail.com"
+		handle = Entrez.efetch(db="protein", id=protein, rettype="fasta", retmode="text")
+		output = (handle.read())
+		fastaseq = output
+
+		fastalist.append(fastaseq)
+	return fastalist
+
+
+
+proteinidlist = ['YP_352048, NP_438908, NP_251697']
+output = protein_to_fasta(proteinidlist)
